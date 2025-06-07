@@ -53,7 +53,6 @@ public class EmployeeService {
     }
 
     public List<EmployeeDto> getAllEmployees(int pageNo, int pageSize, String sortBy) {
-        PageRequest.of(pageNo, pageSize, Sort.by(sortBy))
         Pageable page = PageRequest.of(pageNo, pageSize);
         Page<Employee> all = employeeRepository.findAll(page);
         List<Employee> employees = all.getContent();
